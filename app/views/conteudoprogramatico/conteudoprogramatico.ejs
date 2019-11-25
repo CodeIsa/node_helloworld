@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+			<title>Formulário de inclusão do conteúdo programático</title>
+        </head>
+
+	<body>
+        
+
+        <div class="container">
+             <h2>Preencha o Formulário de conteúdo programático</h2>
+
+            <form action="conteudoprogramatico/salvar" method="post">
+                <div class="form-group">
+                    <label >Conteúdo:</label>
+                    <input type="text" name="conteudo" placeholder="Digite o conteúdo programático">
+                </div>
+                <div class="form-group">
+
+                <label >Data:</label>
+			    <input type="date" name="data" placeholder="Informe a data ">
+                </div>
+
+                <input type="submit" value="enviar">
+            </form>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="container">
+
+            
+                <table class="table table-hover">
+                    <tr>
+                        <th>Conteudo</th>
+                        <th>Data</th>
+                        <th>Ação</th>
+                    </tr>
+                    <% for(let i=0; i<conts.length; i++) {%>
+                            <form action="conteudoprogramatico/excluir" method="POST">
+                                <tr>
+                                    <td name="conteudo"><%= conts[i].conteudo %></td>
+                                    <td name="data"><%= conts[i].data %></td>
+                                    <td>
+                                        <input type="hidden" name="id" class="btn btn-danger" value="<%= conts[i].idconteudoprogramatico %>" >
+                                        <input type="submit" name="submit" class="btn btn-danger" value="X" onclick="return confirm('Tem certeza da exclusão?')">
+                                    </td>
+                                </tr>
+                            </form>
+                    <% } %>
+                </table>
+           
+        </div>
+ 
+
+	</body>
+</html>
