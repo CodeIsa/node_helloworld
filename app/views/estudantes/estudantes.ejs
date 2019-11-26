@@ -6,6 +6,18 @@
 </head>
 <body>
 	<h1>Estudantes</h1>
+
+	<section>
+		<% if(erros) { %>
+		   <ul>
+			   <%for(let i = 0; i < erros.length; i++){%>
+				   <li>
+					   <%= erros[i].msg %>
+				   </li>
+			   <% } %>
+		   </ul>
+		<% } %>
+	</section>
 	<table>
 		<tr>
 			<th>Nome</th>

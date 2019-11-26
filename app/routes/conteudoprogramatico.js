@@ -5,7 +5,11 @@ module.exports = function(app){
         let conteudoprogModel = app.app.models.conteudoprogModel;
 
         conteudoprogModel.getConteudoProg(connection, function(error,result){
-            res.render('conteudoprogramatico/conteudoprogramatico',{conts:result}); //view/ejs
+        
+                res.render('conteudoprogramatico/conteudoprogramatico',{erros: {}, conts:result}); //view/ejs
+                return;
+          
+            
         })
 	});
 }

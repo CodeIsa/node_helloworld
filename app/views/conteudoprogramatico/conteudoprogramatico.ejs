@@ -16,15 +16,26 @@
         <div class="container">
              <h2>Preencha o Formulário de conteúdo programático</h2>
 
+             <section>
+                 <% if(erros) { %>
+                    <ul>
+                        <%for(let i = 0; i < erros.length; i++){%>
+                            <li>
+                                <%= erros[i].msg %>
+                            </li>
+                        <% } %>
+                    </ul>
+                 <% } %>
+             </section>
             <form action="conteudoprogramatico/salvar" method="post">
                 <div class="form-group">
                     <label >Conteúdo:</label>
-                    <input type="text" name="conteudo" placeholder="Digite o conteúdo programático">
+                    <input type="text" name="conteudo" placeholder="Digite o conteúdo programático"  >
                 </div>
                 <div class="form-group">
 
                 <label >Data:</label>
-			    <input type="date" name="data" placeholder="Informe a data ">
+			    <input type="date" name="data" placeholder="Informe a data"  >
                 </div>
 
                 <input type="submit" value="enviar">
