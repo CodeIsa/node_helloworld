@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portal da Disciplina DSW</title>
+
+
+</head>
+
+<body>
+    <div class="container custom-container jumbotron custom-jumbo">
+        <h1 class="display-4">Login</h1>
+            <hr class="my-4">
+            <form action="/usuario/autenticar" method="post">
+                <div class="form-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Usuário">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Senha">
+                </div>
+
+    
+                <input type="submit" class="btn btn-primary btn-lg" value="Enviar">
+                <hr class="my-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6">
+                        </div>
+                        <div class="col-xs-6 ml-4 mt-2">
+                            <a class="btn btn-secondary btn-lg" href="/cadastroUsuario" id="cadastrarBtn">Cadastrar</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+    </div>
+
+	<!-- </nav> -->
+	<section>
+		<% if(erros) { %>
+		<section class="alert alert-danger">
+			<p>Atenção!</p>
+			<ul>
+				<% for(let i = 0; i < erros.length; i++){ %>
+				<li>
+					<%= erros[i].msg %>
+				</li>
+				<% } %>
+			</ul>
+		</section>
+		<% } %>
+	</section>
+
+
+
+</body>
+
+</html>

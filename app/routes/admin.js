@@ -2,7 +2,7 @@ const {check, validationResult } = require('express-validator');
 
 module.exports = function(app){
     app.post('/estudante/salvar',[
-		check('email').isEmail().withMessage(email)
+		//check('email').isEmail().withMessage(email)
 	], (req,res) => {
 		const errors = validationResult(req)
 		let estudante = req.body;
@@ -61,5 +61,11 @@ module.exports = function(app){
 		deleteConteProgModel.deleteConteudoProg(id, connection, function(error, result) {
 			res.redirect('/conteudoprogramatico');
 		});
+	})
+
+	app.post('/usuario/cadastrar',function(req,res){
+		let controller = app.app.controllers.authController;
+		//chama o controller
+		controller.storeUser(app,req,res);
 	})
 }

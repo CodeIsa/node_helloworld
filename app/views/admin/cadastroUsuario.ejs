@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portal da Disciplina DSW</title>
+	<script>
+		$(document).ready(function() {
+			console.log("Teste");
+			$("#login").click(function () {
+				window.location.href = "/login";
+			})
+		})
+	</script>
+</head>
+
+<body>
+
+		<div class="container custom-container jumbotron custom-jumbo">
+			<h1 class="display-4">Cadastro</h1>
+				<hr class="my-4">
+				<form action="/usuario/cadastrar" method="post">
+					<div class="form-group">
+						<label for="nome">Nome:</label>
+						<input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+					</div>
+
+					<div class="form-group">
+						<label for="username">Usuário:</label>
+						<input type="text" class="form-control" name="username" id="username" placeholder="Usuário">
+					</div>
+
+					<div class="form-group">
+						<label for="password">Senha:</label>
+						<input type="password" class="form-control" name="password" id="password" placeholder="Senha">
+					</div>
+
+					<!-- <div class="form-group">
+						<label for="confSenha">Confirme sua Senha:</label>
+						<input class="form-control" type="password" name="confSenha" placeholder="Confirme sua Senha">
+					</div> -->
+		
+					<input type="submit" class="btn btn-primary btn-lg" value="Enviar">
+					<hr class="my-4">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-6">
+							</div>
+							<div class="col-xs-6 ml-4 mt-2">
+								<a class="btn btn-secondary btn-lg" href="/login" btn-lg">Login</a>
+							</div>
+						</div>
+					</div>
+					
+				</form>
+		</div>
+
+	<!-- </nav> -->
+	<section>
+		<% if(erros) { %>
+		<section class="alert alert-danger">
+			<p>Atenção!</p>
+			<ul>
+				<% for(let i = 0; i < erros.length; i++){ %>
+				<li>
+					<%= erros[i].msg %>
+				</li>
+				<% } %>
+			</ul>
+		</section>
+		<% } %>
+	</section>
+
+	<!-- <section class="container">
+		<section class="row">
+			<h1 class="text-center">Bem vindo a página inicial da disciplina</h1>
+			<h2 class="text-center">DSW - Desenvolvimento de Sistemas Web</h2>
+			<img class="text-center" src="/images/logo.png" />
+		</section>
+		<section class="row">
+			<a href="http://localhost:3000/estudantes">Listar Estudantes</a><br />
+			<a href="http://localhost:3000/estudante/inserir">Insere Estudante</a><br /><br />
+			<a href="http://localhost:3000/conteudoprogramatico">Listar Conteudo Programatico</a><br />
+			<a href="http://localhost:3000/insere-conteudo">Inserir Conteúdo Programático</a><br />
+		</section>
+	</section> -->
+
+</body>
+
+</html>
